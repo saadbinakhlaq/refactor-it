@@ -16,13 +16,15 @@ export default function TerminalUI(editorProps: EditorProps) {
 
   return (
     <>
-      <MonacoEditor
-        height="60vh"
-        width="50vw"
-        defaultLanguage="python"
-        onMount={handleEditorDidMount}
-        theme={theme.value}
-      />
+      <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
+        <MonacoEditor
+            height="60vh"
+            width={`100%`}
+            defaultLanguage="python"
+            onMount={handleEditorDidMount}
+            theme={theme.value}
+          />
+      </div>
     </>
   )
 }
