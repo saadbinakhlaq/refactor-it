@@ -17,3 +17,7 @@ export interface Theme {
   value: string;
   label: string;
 }
+
+export interface OutputDetailsProps {
+  [key: string]: any;
+}

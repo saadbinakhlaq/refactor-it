@@ -9,12 +9,11 @@ import { EditorProps } from '../lib/types';
 export default function TerminalUI(editorProps: EditorProps) {
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
   const { theme, onChange, code } = editorProps
-  const { value, setValue } = useState(code || "");
+  const [ value, setValue ] = useState(code || "");
 
   function handleEditorDidMount(codeEditor: editor.IStandaloneCodeEditor, monaco: Monaco) {
     editorRef.current = codeEditor;
   }
-
 
   function handleEditorChange(value: string | undefined) {
     const valueOrNull = value ?? ""
@@ -32,6 +31,7 @@ export default function TerminalUI(editorProps: EditorProps) {
             onMount={handleEditorDidMount}
             theme={theme.value}
             onChange={handleEditorChange}
+            value={value}
           />
       </div>
     </>
